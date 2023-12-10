@@ -11,6 +11,8 @@ https://www.qemu.org/download/
 - https://www.qemu.org/docs/master/
 - https://www.qemu.org/docs/master/system/introduction.html
 - https://www.qemu.org/docs/master/interop/qemu-qmp-ref.html#qmp-ref
+- https://medium.com/@DrewViles/using-libvirt-kvm-qemu-to-create-vms-792e49262304
+- https://christitus.com/vm-setup-in-linux/
 
 // install it
 // add the path where u already installed qemu into env path
@@ -68,3 +70,7 @@ qemu-system-x86_64 -cpu base -vga virtio -display gtk,gl=on -machine type=q35,ac
 ```
 
 #### ---
+
+WELL I THINK WHEN I MIGRATE TO LINUX I WILL CONTINUE TO USE QEMU
+
+BYE QEMU ON WINDOWS
