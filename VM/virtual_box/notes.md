@@ -7,6 +7,8 @@ DEBIAN12 ::
 - https://linuxize.com/post/how-to-list-users-in-linux/
 - https://www.youtube.com/watch?v=77-tuFE_pGc // window manager i3 set ups
 - https://i3wm.org/docs/userguide.html
+- https://github.com/tmux/tmux/wiki/Installing
+- https://github.com/owl-birds/tmux-config/blob/main/.tmux.conf
 
 # SETTING UP WINDOW MANAGER --- i3wm
 
@@ -19,6 +21,11 @@ DEBIAN12 ::
 5. https://wiki.archlinux.org/title/KDE#KF5.2FQt5_applications_don.27t_display_icons_in_i3.2Ffvwm.2Fawesome
 6. https://installati.one/install-breeze-icon-theme-ubuntu-20-04/?expand_article=1
 7. https://www.vpsserver.com/check-linux-cpu-usage/
+8. https://wiki.archlinux.org/title/tmux
+9. https://github.com/rothgar/awesome-tmux#themes
+10. https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
+11. https://github.com/yshui/picom
+12. https://wiki.archlinux.org/title/Picom
 
 ### installations
 
@@ -100,11 +107,31 @@ we re installing i3 (https://i3wm.org/docs/userguide.html)
     ; exec always nitrogen --restore
     ; https://wiki.archlinux.org/title/nitrogen
     ; is a fast and lightweight (GTK2) desktop background browser and setter for X Window.
+6. https://forum.manjaro.org/t/wallpaper-goes-blank-after-reboot/60864
+    ; exec --no-startup-id nitrogen --restore; sleep 1; compton -b # add this to i3 config file
 // list of window manager
 
 // changing terminal font size (etc terminal related)
 1. https://raspberrytips.com/increase-font-size-in-linux-terminal/
 2. /etc/default/console-setup
+
+// TMUX PORBLEMS
+1. https://github.com/tmux/tmux/issues/2377
+2. https://github.com/tmux-plugins/tmux-continuum/issues/48 ; Not sure what exactly caused it but for me the culprit was https://github.com/jimeh/tmux-themepack.
+When sourcing my plugins with tpm I had to make sure to add the themepack before continuum
+
+// BACKUP ; SNAPSHOTS ; RESTORE
+1. sudo apt install timeshift
+3. sudo timeshift-launcher
+2. https://www.linuxbuzz.com/how-to-install-use-timeshift-on-debian/
+
+// ENHANCING VBOX EXPERIENCE
+1. insalling virtualbox guest additions : https://itslinuxfoss.com/install-virtualbox-guest-additions-debian-12/
+2. https://kifarunix.com/install-virtualbox-guest-additions-on-debian-11/?expand_article=1
+3. https://stackoverflow.com/questions/22165929/install-linux-headers-on-debian-unable-to-locate-package
+
+// INSTALL ETC
+1. sudo apt-get install libevent ncurses libevent-dev ncurses-dev build-essential bison pkg-config
 
 // all random commands
 1. sudo fdisk -l
@@ -114,6 +141,10 @@ we re installing i3 (https://i3wm.org/docs/userguide.html)
 5. sudo apt install gnupg curl git vim
 6. sudo shutdown -h now
 7. top ; like task manager ; (https://www.javatpoint.com/linux-task-manager#:~:text=We%20can%20apply%20it%20in,usage%2C%20CPU%20usage%2C%20etc.)
+8. TMUX ; tmux list-sessions ; tmux new -s session_name ; tmux kill-session -t session_name ; tmux attach -t session_name ; tmux kill-session -a ; tmux a
+ ->> https://debugpointer.com/linux/tmux-cheatsheet
+9. dpkg -s package-name : to find out wehter the package is installed or not
+10. rm -r dir_name
 
 ```
 
