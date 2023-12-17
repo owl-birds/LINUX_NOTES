@@ -26,6 +26,15 @@ DEBIAN12 ::
 10. https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
 11. https://github.com/yshui/picom
 12. https://wiki.archlinux.org/title/Picom
+13. https://www.youtube.com/watch?v=aEt5FKD87uc
+14. https://github.com/yshui/picom/blob/next/picom.sample.conf
+15. https://linux-packages.com/manjaro-linux/package/xorg-xprop
+16. https://command-not-found.com/xprop
+17. https://support.huaweicloud.com/intl/en-us/codehub_faq/codehub_faq_1007.html
+18. https://ravicpoon.medium.com/how-to-fix-github-007-error-1056a1a41213
+19. https://askubuntu.com/questions/527410/what-is-the-advantage-of-using-sudo-apt-get-autoremove-over-a-cleaner-app
+20. https://reqbin.com/req/c-egazzayq/curl-download-file
+21. https://www.baeldung.com/linux/install-multiple-fonts
 
 ### installations
 
@@ -145,7 +154,18 @@ When sourcing my plugins with tpm I had to make sure to add the themepack before
  ->> https://debugpointer.com/linux/tmux-cheatsheet
 9. dpkg -s package-name : to find out wehter the package is installed or not
 10. rm -r dir_name
-
+11. sudo find / -iname filename/dir_name
+12. xprop : to find window informations/details : to install it on debian12 : sudo apt install x11-utils
+13. git commit --amend --reset-author --no-edit
+14. curl -o filename.txt https://reqbin.com/echo
+15. cp ~/Downloads/{*.ttf,*.otf} ~/.local/share/fonts
+16. fc-cache -f -v
+17. curl -L -O links
+18. removing any files with specific extensions : for file in $(find /path/to/dir -name "*.extension"); do rm -f "$file"; done
+19. unzip file.zip -d destination_folder
+20. cp ~/Downloads/{*.ttf,*.otf} ~/.local/share/fonts
+21. sudo dpkg -i DEB_PACKAGE ; INSTALL
+22. sudo dpkg -r PACKAGE_NAME ; REMOVE A PACKAGE
 ```
 
 ### installing zsh (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
