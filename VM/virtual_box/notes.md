@@ -49,7 +49,7 @@ su - ::: switch user to root
 su username
 
 // how to add new user to list of sudoers
-1. switch to root
+1. switch to root ; su ;
 2. update everything first, ; apt-get update
 3. then ; usermod -aG sudo username
 4. then ; id username ; (to check if the user is added to the list)
@@ -108,7 +108,7 @@ https://shapeshed.com/zsh-corrupt-history-file/
 1. https://dwm.suckless.org/ ::: dynamic WM
 
 we re installing i3 (https://i3wm.org/docs/userguide.html)
-1. sudo apt install startx i3
+1. sudo apt install startx i3 ; sudo apt install xorg
 2. startx
 3. change the configuration at .config/i3
 4. change the keybindings to ur liking
@@ -166,6 +166,10 @@ When sourcing my plugins with tpm I had to make sure to add the themepack before
 20. cp ~/Downloads/{*.ttf,*.otf} ~/.local/share/fonts
 21. sudo dpkg -i DEB_PACKAGE ; INSTALL
 22. sudo dpkg -r PACKAGE_NAME ; REMOVE A PACKAGE
+23. ls /sys/class/power_supply/
+    ls /sys/class/power_supply/BAT0
+    cat /sys/class/power_supply/BAT0/capacity
+    cat /sys/class/power_supply/BAT0/status
 ```
 
 ### installing zsh (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
