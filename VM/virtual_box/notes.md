@@ -35,6 +35,9 @@ DEBIAN12 ::
 19. https://askubuntu.com/questions/527410/what-is-the-advantage-of-using-sudo-apt-get-autoremove-over-a-cleaner-app
 20. https://reqbin.com/req/c-egazzayq/curl-download-file
 21. https://www.baeldung.com/linux/install-multiple-fonts
+22. CHANGING TIMEZONE : https://tecadmin.net/change-timezone-on-debian/#:~:text=Changing%20the%20time%20zone%20on%20a%20Debian%20Linux%20system%20can,displays%20the%20correct%20local%20time. ; timedatectl
+23. https://www.baeldung.com/linux/sha-256-from-command-line
+24. https://techglimpse.com/insert-text-beginning-line-vim/
 
 ### installations
 
@@ -139,6 +142,10 @@ When sourcing my plugins with tpm I had to make sure to add the themepack before
 2. https://kifarunix.com/install-virtualbox-guest-additions-on-debian-11/?expand_article=1
 3. https://stackoverflow.com/questions/22165929/install-linux-headers-on-debian-unable-to-locate-package
 
+// installing nvim
+https://github.com/neovim/neovim/releases/
+
+
 // INSTALL ETC
 1. sudo apt-get install libevent ncurses libevent-dev ncurses-dev build-essential bison pkg-config
 
@@ -170,6 +177,19 @@ When sourcing my plugins with tpm I had to make sure to add the themepack before
     ls /sys/class/power_supply/BAT0
     cat /sys/class/power_supply/BAT0/capacity
     cat /sys/class/power_supply/BAT0/status
+24. curl -L -o target/path/filename URL
+    Download nvim-linux64.tar.gz
+    Extract: tar xzvf nvim-linux64.tar.gz
+    Run ./nvim-linux64/bin/nvim
+25. CHECH sha256sum :::  sha256sum filename.ext ; sha256sum /path/to/filename.ext > checksum ;
+26. BASH reading files
+    $ cat myScript.sh
+    #!/bin/bash
+    file="$1"
+    while read arg; do
+        echo "Argument: $arg"
+    done < "$file"
+27.
 ```
 
 ### installing zsh (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
@@ -198,3 +218,31 @@ Press the Esc key to go back to the normal mode. ESC.
 Type u to undo the last change.
 To undo the two last changes, you would type 2u .
 Press Ctrl-r to redo changes which were undone. In other words, undo the undos. Typically, known as redo.
+
+1. adding something in the first line we selected
+   Step 1: Move the cursor to the line from where you would like to insert the text.
+
+   Step 2: Hit Ctrl + V to enter into Visual Block and use cursor to select the first column till line where you want to stop inserting the text.
+
+   Step 3: Hit Shift + i to enter into insert mode. Type text you would like to insert and hit ESC. You will see the text being insert automatically to all the lines selected in Step 2.
+
+2. https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
+
+   1. Try using "\*yy or "+yy to copy a line to your system's clipboard.
+   2. Be aware that copying/pasting from the system clipboard will not work if :echo has('clipboard') returns 0. In this case, vim is not compiled with the +clipboard feature and you'll have to install a different version or recompile it. Some linux distros supply a minimal vim installation by default, but if you install the vim-gtk or vim-gtk3 package you can get the extra features nonetheless.
+
+   The "_ and "+ registers are for the system's clipboard (:help registers). Depending on your system, they may do different things. For instance, on systems that don't use X11 like OSX or Windows, the "_ register is used to read and write to the system clipboard. On X11 systems both registers can be used. See :help x11-selection for more details, but basically the "\* is analogous to X11's _PRIMARY_ selection (which usually copies things you select with the mouse and pastes with the middle mouse button) and "+ is analogous to X11's _CLIPBOARD_ selection (which is the clipboard proper).
+
+   If all that went over your head, try using "\*yy or "+yy to copy a line to your system's clipboard. Assuming you have the appropriate compile options, one or the other should work.
+
+   You might like to remap this to something more convenient for you. For example, you could put vnoremap <C-c> "\*y in your ~/.vimrc so that you can visually select and press Ctrl+c to yank to your system's clipboard.
+
+   You also may want to have a look at the 'clipboard' option described in :help cb. In this case you can :set clipboard=unnamed or :set clipboard=unnamedplus to make all yanking/deleting operations automatically copy to the system clipboard. This could be an inconvenience in some cases where you are storing something else in the clipboard as it will override it.
+
+   To paste you can use "+p or "_p (again, depending on your system and/or desired selection) or you can map these to something else. I type them explicitly, but I often find myself in insert mode. If you're in insert mode you can still paste them with proper indentation by using <C-r><C-p>_ or <C-r><C-p>+. See :help i_CTRL-R_CTRL-P.
+
+   It's also worth mentioning vim's paste option (:help paste). This puts vim into a special "paste mode" that disables several other options, allowing you to easily paste into vim using your terminal emulator's or multiplexer's familiar paste shortcut. (Simply type :set paste to enable it, paste your content and then type :set nopaste to disable it.) Alternatively, you can use the pastetoggle option to set a keycode that toggles the mode (:help pastetoggle).
+
+   I recommend using registers instead of these options, but if they are still too scary, this can be a convenient workaround while you're perfecting your vim chops.
+
+   See :help clipboard for more detailed information.
