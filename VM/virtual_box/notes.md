@@ -38,6 +38,17 @@ DEBIAN12 ::
 22. CHANGING TIMEZONE : https://tecadmin.net/change-timezone-on-debian/#:~:text=Changing%20the%20time%20zone%20on%20a%20Debian%20Linux%20system%20can,displays%20the%20correct%20local%20time. ; timedatectl
 23. https://www.baeldung.com/linux/sha-256-from-command-line
 24. https://techglimpse.com/insert-text-beginning-line-vim/
+25. https://www.baeldung.com/linux/bash-string-character-loo
+26. https://byby.dev/bash-compare-strings
+27. https://www.baeldung.com/linux/bash-script-file-arguments
+28. https://www.baeldung.com/linux/bash-string-character-loop
+29. https://linuxopsys.com/topics/pass-all-arguments-in-bash#:~:text=Bash%20Pass%20all%20Arguments%20as%20Array,-An%20array%20is&text=We%20use%20%24%40%20to%20get,task%20on%20the%20provided%20input.
+30. https://www.nexcess.net/help/what-is-chmod/#:~:text=By%20Paul%20Stubblefield-,What%20is%20chmod%3F,for%20changing%20file%20access%20permissions.
+31. https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path
+32. https://askubuntu.com/questions/14535/whats-the-local-folder-for-in-my-home-directory
+33. https://dev.to/mble/installing-latest-neovim-and-lunarvim-on-debian-3cg1
+34. https://github.com/neovim/neovim/blob/master/INSTALL.md
+35.
 
 ### installations
 
@@ -144,7 +155,21 @@ When sourcing my plugins with tpm I had to make sure to add the themepack before
 
 // installing nvim
 https://github.com/neovim/neovim/releases/
+https://medium.com/thelinux/the-correct-way-to-install-the-neovim-42f3076f9b88
 
+    sudo apt remove neovim -y
+    mkdir -p ~/.local/bin
+    mv nvim-linux64.tar.gz ~/.local/bin
+    cd ~/.local/bin
+    tar xzvf nvim-linux64.tar.gz
+    rm -fr nvim-linux64.tar.gz
+    ln -s ./nvim-linux64/bin/nvim ./nvim
+    nvim --version
+
+    Then change this setting in vscode: Vscode-neovim › Neovim Executable Paths: Linux
+    To: ~/.local/bin/nvim
+
+    chmod u+x /usr/local/bin/nvim
 
 // INSTALL ETC
 1. sudo apt-get install libevent ncurses libevent-dev ncurses-dev build-essential bison pkg-config
@@ -189,7 +214,23 @@ https://github.com/neovim/neovim/releases/
     while read arg; do
         echo "Argument: $arg"
     done < "$file"
-27.
+27. chmod (Change Mode) ;
+    The chmod, or change mode, command allows an administrator to set or modify a file’s permissions. Every UNIX/Linux file has an owner user and an owner group attached to it, and every file has permissions associated with it. The permissions are as follows: read, write, or execute.
+
+    The Change Mode (chmod) Meaning & Mode Parameters Reference Table below shows the eight numbers that can be used within the chmod parameter. The rwx column specifies read, write, and execute access, offering a binary value for each operation. A "1" means "yes," a "0" means "no." If rwx reads 110, then that permission may read and write, but not execute.
+
+    syntax : chmod mode file
+    #	Permission	                rwx
+    0	none	                    000
+    1	execute only	            001
+    2	write only	                010
+    3	write and execute	        011
+    4	read only	                100
+    5	read and execute	        101
+    6	read and write	            110
+    7	read, write, and execute	111
+
+28. ln ; The ln command is a standard Unix command utility used to create a hard link or a symbolic link (symlink) to an existing file or directory.
 ```
 
 ### installing zsh (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
